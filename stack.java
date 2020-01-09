@@ -1,29 +1,29 @@
 import java.util.*;
 
-// ¹è¿­À» ÀÌ¿ëÇÑ Stack ±¸Çö
+// ë°°ì—´ì„ ì´ìš©í•œ Stack êµ¬í˜„
 class Stack{
 	private int top;
 	private int Size;
 	private Object stackArr[];
 	
-	// ½ºÅÃ »ı¼ºÀÚ
+	// ìŠ¤íƒ ìƒì„±ì
 	public Stack(int size) {
 		this.top = -1;
 		this.Size = size;
 		this.stackArr = new Object[size];
 	}
 	
-	// ½ºÅÃÀÌ ºñ¾ú´ÂÁö È®ÀÎ
+	// ìŠ¤íƒì´ ë¹„ì—ˆëŠ”ì§€ í™•ì¸
 	public boolean empty() {
 		return (top == -1);
 	}
 	
-	// ½ºÅÃÀÌ ²ËÃ¡´ÂÁö Ã¼Å©
+	// ìŠ¤íƒì´ ê½‰ì°¼ëŠ”ì§€ ì²´í¬
 	public boolean full() {
 		return(top == Size-1);
 	}
 	
-	//½ºÅÃ¿¡ item ÀÔ·Â
+	//ìŠ¤íƒì— item ì…ë ¥
 	public void push(Object item) {
 		if(full())
 			throw new ArrayIndexOutOfBoundsException((top+1)+">="+Size);
@@ -31,14 +31,14 @@ class Stack{
 		stackArr[++top]= item;
 	}
 	
-	//½ºÅÃÀÇ °¡Àå À§ÀÇ µ¥ÀÌÅÍ ¹İÈ¯
+	//ìŠ¤íƒì˜ ê°€ì¥ ìœ„ì˜ ë°ì´í„° ë°˜í™˜
 	public Object peek() {
 		if(empty()) return 0;
 		
 		return stackArr[top];
 	}
 	
-	//½ºÅÃÀÇ °¡Àå À§ÀÇ µ¥ÀÌÅÍ Á¦°Å
+	//ìŠ¤íƒì˜ ê°€ì¥ ìœ„ì˜ ë°ì´í„° ì œê±°
 	public Object pop() {
 		Object item = peek();
 		
@@ -48,7 +48,7 @@ class Stack{
 	}
 }
 
-// ¹éÁØ 1874¹ø ½ºÅÃ ¼ö¿­ ¹®Á¦
+// ë°±ì¤€ 1874ë²ˆ ìŠ¤íƒ ìˆ˜ì—´ ë¬¸ì œ
 public class Main {
 
 	public static void main(String[] args) {
@@ -57,15 +57,15 @@ public class Main {
 		Stack st = new Stack(n);
 		
 
-		// ÀÔ·Â ¹è¿­
+		// ì…ë ¥ ë°°ì—´
 		int input[] = new int[n]; 
-		// Ãâ·Â ¹è¿­
+		// ì¶œë ¥ ë°°ì—´
 		char output[] = new char[2*n];
 		
 		for(int i=0; i<n; ++i)
 			input[i] = sc.nextInt();
 		
-		// output ¹è¿­ ÀÎµ¦½º
+		// output ë°°ì—´ ì¸ë±ìŠ¤
 		int idx = 0;
 		
 		for(int i=1, j=0; i<=n; ++i) {
@@ -87,12 +87,12 @@ public class Main {
 			}
 			
 		}
-		// °è»ê°¡´É
+		// ê³„ì‚°ê°€ëŠ¥
 		if(st.empty()) {
 			for(int i=0; i<2*n; i++)
 				System.out.println(output[i]);
 		}
-		// °è»ê ºÒ°¡´É
+		// ê³„ì‚° ë¶ˆê°€ëŠ¥
 		else
 			System.out.println("NO");
 	}
